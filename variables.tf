@@ -24,6 +24,11 @@ variable "resource_group_name" {
 
 }
 
+# Tags 
+variable "tags" {
+  description = "Tags for the Cognitive Account"
+  type        = map(string)
+}
 
 # -----------------------------------------------------
 # Variables for registry
@@ -71,12 +76,6 @@ variable "aoai_sku_name" {
 variable "public_network_access_enabled" {
   description = "Enable public network access for the Cognitive Account"
   type        = bool
-}
-
-# Tags for the Cognitive Account
-variable "tags" {
-  description = "Tags for the Cognitive Account"
-  type        = map(string)
 }
 
 # List of Cognitive Deployments
@@ -186,3 +185,43 @@ variable "virtual_networks_to_link" {
     resource_group_name = string
   }))
 }
+
+# -----------------------------------------------------
+# App service plan, App service
+# -----------------------------------------------------
+
+# app_service_plan_name
+variable "app_service_plan_name" {
+
+}
+
+# app_service_plan_size
+variable "app_service_plan_size" {
+
+}
+
+# app_service_plan_tier
+variable "app_service_plan_tier" {
+
+}
+
+# os_type
+variable "os_type" {
+
+}
+
+# app_service_name
+variable "app_service_name" {
+
+}
+
+# app_settings
+variable "app_settings" {
+  description = "App settings for the App Service"
+  type        = list(object({
+    key   = string
+    value = string
+  }))
+  default     = []
+}
+

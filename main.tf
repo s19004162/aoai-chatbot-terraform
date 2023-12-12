@@ -104,3 +104,31 @@ module "cognitive_account" {
   environment                   = var.environment
 }
 
+# -----------------------------------------------------
+# App service
+# -----------------------------------------------------
+
+module "appservice" {
+  source = "./modules/appservice"
+
+  # App service plan
+  app_service_plan_name         = var.app_service_plan_name
+  resource_group_location       = module.base.resource_group_location
+  resource_group_name           = module.base.resource_group_name
+  app_service_plan_size         = var.app_service_plan_size
+  app_service_plan_tier         = var.app_service_plan_tier
+  os_type                       = var.os_type
+  # sku_name                      = var.sku_name
+  tags                          = var.tags  
+  
+  # App service
+  app_service_name              = var.app_service_name
+  app_settings                  = var.app_settings
+
+  # Private endpoint
+  vnet_resource_group_name      = module.base.vnet_resource_group_name
+  vnet_resource_group_location  = module.base.vnet_resource_group_location
+  subnet_id                     = module.network.pe_subnet_id
+  system_name_prefix            = var.system_name_prefix
+  environment                   = var.environment
+}

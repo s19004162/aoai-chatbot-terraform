@@ -77,7 +77,7 @@ resource "azurerm_private_endpoint" "openai_private_endpoint" {
 resource "azurerm_private_dns_a_record" "openai_dns_record" {
   name                = var.aoai_name
   zone_name           = "privatelink.openai.azure.com"
-  resource_group_name = var.resource_group_name
+  resource_group_name = var.vnet_resource_group_name
   ttl                 = 300
   records             = [azurerm_private_endpoint.openai_private_endpoint.private_service_connection[0].private_ip_address]
 }
