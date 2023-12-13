@@ -1,60 +1,30 @@
 # -----------------------------------------------------
-# Azure OpenAI
+# VM
 # -----------------------------------------------------
 
 # Resource group name
-variable "resource_group_name" {
+variable "vnet_resource_group_name" {
 
 }
 
 # Resource group location
-variable "resource_group_location" {
+variable "vnet_resource_group_location" {
 
 }
 
-# Name of the Azure Cognitive Account
-variable "aoai_name" {
-  description = "Name of the Azure Cognitive Account"
-  type        = string
+# VM size
+variable "vm_size" {
+
 }
 
-# Location for resources
-variable "aoai_location" {
-  description = "Location for resources"
-  type        = string
+# ip_configuration_name
+variable "ip_configuration_name" {
+
 }
 
-# Custom subdomain name for the Cognitive Account
-variable "custom_subdomain_name" {
-  description = "Custom subdomain name for the Cognitive Account"
-  type        = string
-}
+# subnet id
+variable "subnet_id" {
 
-# SKU name for the Cognitive Account
-variable "aoai_sku_name" {
-  description = "SKU name for the Cognitive Account"
-  type        = string
-}
-
-# Enable public network access for the Cognitive Account
-variable "public_network_access_enabled" {
-  description = "Enable public network access for the Cognitive Account"
-  type        = bool
-}
-
-# Tags for the Cognitive Account
-variable "tags" {
-  description = "Tags for the Cognitive Account"
-  type        = map(string)
-}
-
-# List of Cognitive Deployments
-variable "aoai_deployments" {
-  description = "List of Cognitive Deployments"
-  type        = list(object({
-    name  = string
-    model = map(string)
-  }))
 }
 
 # -----------------------------------------------------
