@@ -132,3 +132,26 @@ module "appservice" {
   system_name_prefix            = var.system_name_prefix
   environment                   = var.environment
 }
+
+# -----------------------------------------------------
+# VM
+# -----------------------------------------------------
+
+module "vm" {
+  source = "./modules/vm"
+
+  # VM NIC
+  system_name_prefix            = var.system_name_prefix
+  environment                   = var.environment
+  vnet_resource_group_name      = module.base.vnet_resource_group_name
+  vnet_resource_group_location  = module.base.vnet_resource_group_location
+  ip_configuration_name         = var.ip_configuration_name
+  subnet_id                     = module.network.pe_subnet_id
+
+  # VM
+  vm_size                       = var.vm_size
+  admin_username                = var.admin_username
+  admin_password                = var.admin_password
+  tags                          = var.tags  
+  
+}
