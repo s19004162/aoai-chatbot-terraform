@@ -1,19 +1,24 @@
 # -----------------------------------------------------
-# VM
+# VM NIC
 # -----------------------------------------------------
 
-# Resource group name
+# System name prefix
+variable "system_name_prefix" {
+    description = "Prefix of the System name."
+}
+
+# Environment name
+variable "environment" {
+  description = "environment prefix"
+}
+
+# VNET Resource group name
 variable "vnet_resource_group_name" {
 
 }
 
-# Resource group location
+# VNET Resource group location
 variable "vnet_resource_group_location" {
-
-}
-
-# VM size
-variable "vm_size" {
 
 }
 
@@ -28,52 +33,20 @@ variable "subnet_id" {
 }
 
 # -----------------------------------------------------
-# Private endpoint for aoai
+# VM
 # -----------------------------------------------------
 
-# Resource vnet resource group name
-variable "vnet_resource_group_name" {
+# VM size
+variable "vm_size" {
 
 }
 
-# External variable for location of vnet resource group
-variable "vnet_resource_group_location" {
+# admin_username
+variable "admin_username" {
 
 }
 
-# System name prefix
-variable "system_name_prefix" {
-    description = "Prefix of the System name."
-}
+# admin_password
+variable "admin_password" {
 
-# Environment name
-variable "environment" {
-  default = "prod"
-  description = "environment prefix"
-}
-
-# subnet id for private endpoint
-variable "subnet_id" {
-
-}
-
-# -----------------------------------------------------
-# Log Analytics
-# -----------------------------------------------------
-
-# Log Analytics Workspace
-variable "log_name" {
-  
-}
-
-# ID of the Log Analytics Workspace
-variable "log_analytics_workspace_id" {
-  description = "ID of the Log Analytics Workspace"
-  type        = string
-}
-
-# Retention days for Log Analytics
-variable "log_analytics_retention_days" {
-  description = "Retention days for Log Analytics"
-  type        = number
 }
