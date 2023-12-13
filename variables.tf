@@ -225,3 +225,35 @@ variable "app_settings" {
   default     = []
 }
 
+# -----------------------------------------------------
+# VM NIC
+# -----------------------------------------------------
+
+# ip_configuration_name
+variable "ip_configuration_name" {
+
+}
+
+# subnet id
+variable "subnet_id" {
+
+}
+
+# -----------------------------------------------------
+# VM
+# -----------------------------------------------------
+
+# VM size
+variable "vm_size" {
+
+}
+
+# admin_username
+variable "admin_username" {
+
+}
+
+# admin_password
+variable "admin_password" {
+
+}
