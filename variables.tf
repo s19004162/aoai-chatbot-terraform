@@ -234,11 +234,6 @@ variable "ip_configuration_name" {
 
 }
 
-# subnet id
-variable "subnet_id" {
-
-}
-
 # -----------------------------------------------------
 # VM
 # -----------------------------------------------------
@@ -255,5 +250,19 @@ variable "admin_username" {
 
 # admin_password
 variable "admin_password" {
+
+}
+
+# -----------------------------------------------------
+# Bastion
+# -----------------------------------------------------
+
+# public ip address name for bastion host
+variable "bst_pip_name" {
+
+}
+
+# bst_name
+variable "bst_name" {
 
 }

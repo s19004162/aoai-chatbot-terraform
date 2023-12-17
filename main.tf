@@ -146,12 +146,30 @@ module "vm" {
   vnet_resource_group_name      = module.base.vnet_resource_group_name
   vnet_resource_group_location  = module.base.vnet_resource_group_location
   ip_configuration_name         = var.ip_configuration_name
-  subnet_id                     = module.network.pe_subnet_id
+  subnet_id                     = module.network.vm_subnet_id
 
   # VM
   vm_size                       = var.vm_size
   admin_username                = var.admin_username
   admin_password                = var.admin_password
   tags                          = var.tags  
+  
+}
+
+# -----------------------------------------------------
+# Bastion
+# -----------------------------------------------------
+
+module "bastion" {
+  source = "./modules/bastion"
+
+  # Public IP address
+  bst_pip_name                  = var.bst_pip_name
+  vnet_resource_group_name      = module.base.vnet_resource_group_name
+  vnet_resource_group_location  = module.base.vnet_resource_group_location
+
+  # Bastion host
+  bst_name                      = var.bst_name
+  subnet_id                     = module.network.bst_subnet_id
   
 }

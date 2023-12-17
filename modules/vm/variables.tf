@@ -50,3 +50,10 @@ variable "admin_username" {
 variable "admin_password" {
 
 }
+
+# tags
+variable "tags" {
+  description = "Tags for the Azure App Service"
+  type        = map(string)
+  default     = {}
+}
