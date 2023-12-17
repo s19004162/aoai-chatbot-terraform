@@ -113,7 +113,7 @@ app_settings            = [
 ip_configuration_name   = "internal"
 vm_size                 = "Standard_D2s_v3"
 admin_username          = "tkuser01"
-admin_password          = "#Katsushikaho931"
+admin_password          = ""
 
 # -----------------------------------------------------
 # Bastion
