@@ -118,7 +118,6 @@ module "appservice" {
   app_service_plan_size         = var.app_service_plan_size
   app_service_plan_tier         = var.app_service_plan_tier
   os_type                       = var.os_type
-  # sku_name                      = var.sku_name
   tags                          = var.tags  
   
   # App service
@@ -171,5 +170,49 @@ module "bastion" {
   # Bastion host
   bst_name                      = var.bst_name
   subnet_id                     = module.network.bst_subnet_id
+  
+}
+
+# -----------------------------------------------------
+# App Insights
+# -----------------------------------------------------
+
+module "appinsights" {
+  source = "./modules/appinsights"
+
+  # app_insights
+  app_insights_name                       = var.app_insights_name
+  resource_group_name                     = module.base.resource_group_name
+  resource_group_location                 = module.base.resource_group_location
+
+  # app_insights_key
+  app_insights_key_name                   = var.app_insights_key_name
+  
+}
+
+# -----------------------------------------------------
+# Bot
+# -----------------------------------------------------
+
+module "bot" {
+  source = "./modules/bot"
+
+  bot_name                                = var.bot_name
+  resource_group_name                     = module.base.resource_group_name
+  resource_group_location                 = module.base.resource_group_location
+  microsoft_app_id                        = var.microsoft_app_id
+  bot_sku                                 = var.bot_sku
+
+  app_endpoint                            = "https://${module.appservice.azurerm_linux_web_app_default_host_name}/api/messages"
+  developer_app_insights_api_key          = module.appinsights.instrumentation_key
+  developer_app_insights_application_id   = module.appinsights.app_id
+  tags                                    = var.tags
+
+  # Private endpoint
+  vnet_resource_group_name      = module.base.vnet_resource_group_name
+  vnet_resource_group_location  = module.base.vnet_resource_group_location
+  subnet_id                     = module.network.pe_subnet_id
+  system_name_prefix            = var.system_name_prefix
+  environment                   = var.environment
   
 }

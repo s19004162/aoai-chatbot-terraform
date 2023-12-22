@@ -266,3 +266,41 @@ variable "bst_pip_name" {
 variable "bst_name" {
 
 }
+
+# -----------------------------------------------------
+# App Insights
+# -----------------------------------------------------
+
+# app_insights_name
+variable "app_insights_name" {
+
+}
+
+# app_insights_key_name
+variable "app_insights_key_name" {
+
+}
+
+# -----------------------------------------------------
+# Bot
+# -----------------------------------------------------
+
+# bot_name
+variable "bot_name" {
+
+}
+
+# bot_sku
+variable "bot_sku" {
+
+}
+
+# microsoft_app_id
+variable "microsoft_app_id" {
+
+}
+
+# app_endpoint
+# variable "app_endpoint" {
+# 
+# }
